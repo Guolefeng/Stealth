@@ -80,7 +80,6 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
-'Assets/AlarmLight.cs'
 'Assets/Done/DoneScripts/AlarmSystems/DoneAlarmLight.cs'
 'Assets/Done/DoneScripts/AlarmSystems/DoneCCTVPlayerDetection.cs'
 'Assets/Done/DoneScripts/AlarmSystems/DoneLaserBlinking.cs'
@@ -105,6 +104,9 @@
 'Assets/Done/DoneScripts/UnappliedScripts/DoneAnimatorSetup.cs'
 'Assets/Done/DoneScripts/UnappliedScripts/DoneTags.cs'
 'Assets/Done/DoneScripts/UnappliedScripts/guiTextSet.cs'
+'Assets/Scripts/AlarmLight.cs'
+'Assets/Scripts/SceneFadeInOut.cs'
+'Assets/Scripts/Tags.cs'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/UnityScript.dll'
