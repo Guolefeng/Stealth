@@ -478,7 +478,8 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   cloudProjectId: e757c734-dce2-4251-8f4f-7ca68de6c30c
   projectName: MyStealth
   organizationId: hero_guo
