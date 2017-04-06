@@ -25,7 +25,7 @@ public class LiftTrigger : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag(Tags.player);
 		playerAnim = player.GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
-		camMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
+//		camMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
 		sceneFadeInOut = GameObject.FindGameObjectWithTag(Tags.fader).GetComponent<SceneFadeInOut>();
 		liftDoorsTracking = GetComponent<LiftDoorsTracking>();
 	}
@@ -80,7 +80,7 @@ public class LiftTrigger : MonoBehaviour {
 		{
 			// 角色速度设为0 禁止角色移动 禁用摄像机移动脚本 并让角色成为电梯的子对象
 			playerAnim.SetFloat(hash.speedFloat,0f);
-			camMovement.enabled = false;
+//			camMovement.enabled = false;
 			player.transform.parent = transform;
 
 			// 让电梯匀速向上移动
