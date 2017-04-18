@@ -6,7 +6,7 @@ public class LiftTrigger : MonoBehaviour {
 
 	public float timeToDoorsClose = 2f;             // 玩家进入电梯2秒后 关闭内层门
 	public float timeToLiftStart = 3f;              // 玩家进入电梯3秒后 电梯启动
-	public float timeToEndLevel = 6f;               // 玩家进入电梯6秒后 场景结束
+	public float timeToEndLevel = 4f;               // 玩家进入电梯6秒后 场景结束
 	public float liftSpeed = 3f;                    // 电梯移动速度
 
 
