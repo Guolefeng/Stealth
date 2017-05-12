@@ -6550,6 +6550,11 @@ Prefab:
       propertyPath: patrolWayPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1901487673}
+    - target: {fileID: 195763698318498698, guid: e88f7cfb4572f44a4ab2440ebafd6853,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e88f7cfb4572f44a4ab2440ebafd6853, type: 2}
   m_IsPrefabParent: 0
@@ -7586,7 +7591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   resetAfterDeathTime: 5
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 3c77607d75e1d9e44a5f856caf15a81b, type: 3}
 --- !u!114 &1903264687
 MonoBehaviour:
   m_ObjectHideFlags: 0

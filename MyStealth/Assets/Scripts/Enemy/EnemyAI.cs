@@ -36,19 +36,25 @@ public class EnemyAI : MonoBehaviour {
 	void Update ()
 	{
 		// 如果玩家在敌人视线内 且玩家生命值大于0
-		if(enemySight.playerInSight && playerHealth.health > 0f)
+		if(enemySight.playerInSight && playerHealth.health > 0f) {
 			// 射他
 			Shooting();
+		}
+			
 
 		// 如果玩家被发现(被听见或触发警报) 且生命值大于0
-		else if(enemySight.personalLastSighting != lastPlayerSighting.resetPosition && playerHealth.health > 0f)
+		else if(enemySight.personalLastSighting != lastPlayerSighting.resetPosition && playerHealth.health > 0f) {
 			// 追踪他
-			Chasing();
-
+//			Chasing();
+		}
+			
 		// 否则
-		else
+		else {
 			// 老老实实巡逻
-			Patrolling();
+			// 老老实实巡逻
+			//			Patrolling();Patrolling();
+		}
+
 	}
 
 
@@ -65,31 +71,30 @@ public class EnemyAI : MonoBehaviour {
 		Vector3 sightingDeltaPos = enemySight.personalLastSighting - transform.position;
 
 		// 如果玩家距离敌人较远
-		if(sightingDeltaPos.sqrMagnitude > 4f)
+		if(sightingDeltaPos.sqrMagnitude > 4f) {
 			// 让敌人跑向追踪位置
 			nav.destination = enemySight.personalLastSighting;
-
+		}
 		// 移动速度设为追踪速度
 		nav.speed = chaseSpeed;
 
 		// 当敌人与目标点的距离 小于 可停止距离
-		if(nav.remainingDistance < nav.stoppingDistance)
-		{
+		if (nav.remainingDistance < nav.stoppingDistance) {
 			// 追踪等待时间的计时器开始计时
 			chaseTimer += Time.deltaTime;
 
 			// 当敌人等待了足够时间后（设定的5秒）
-			if(chaseTimer >= chaseWaitTime)
-			{
+			if (chaseTimer >= chaseWaitTime) {
 				// 重置最后发现玩家的全局位置和独立位置 重置计时器
 				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 				enemySight.personalLastSighting = lastPlayerSighting.resetPosition;
 				chaseTimer = 0f;
 			}
-		}
-		else
+		} else {
 			// 如果敌人没有靠近玩家最后出现的位置 那么重置计时器（因为追踪位置不是固定的 玩家可能还会在其他位置触发警报 从而刷新追踪位置）
 			chaseTimer = 0f;
+		}
+			
 	}
 
 
@@ -99,28 +104,26 @@ public class EnemyAI : MonoBehaviour {
 		nav.speed = patrolSpeed;
 
 		// 如果没有目标点 或者 已接近目标巡逻点
-		if(nav.destination == lastPlayerSighting.resetPosition || nav.remainingDistance < nav.stoppingDistance)
-		{
+		if (nav.destination == lastPlayerSighting.resetPosition || nav.remainingDistance < nav.stoppingDistance) {
 			// 巡逻等待时间的计时器开始计时
 			patrolTimer += Time.deltaTime;
 
 			// 等待时间过后
-			if(patrolTimer >= patrolWaitTime)
-			{
+			if (patrolTimer >= patrolWaitTime) {
 				// 移动索引至下一个位置
-				if(wayPointIndex == patrolWayPoints.Length - 1)
+				if (wayPointIndex == patrolWayPoints.Length - 1) {
 					wayPointIndex = 0;
-				else
+				} else {
 					wayPointIndex++;
-
+				}
 				// 重置计时器
 				patrolTimer = 0;
 			}
-		}
-		else
+		} else {
 			// 如果没有靠近任何一个目标点 重置计时器
 			patrolTimer = 0;
-
+		}
+			
 		// 目标点设为路径点
 		nav.destination = patrolWayPoints[wayPointIndex].position;
 	}

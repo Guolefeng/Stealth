@@ -41,20 +41,23 @@ public class EnemySight : MonoBehaviour {
 	void Update ()
 	{
 		// 如果发现玩家位置的全局变量发生改变
-		if(lastPlayerSighting.position != previousSighting)
+		if(lastPlayerSighting.position != previousSighting) {
 			// 那么每个敌人的单独位置变量都将等于全局变量
 			personalLastSighting = lastPlayerSighting.position;
-
+		}
+			
 		// 并把上一帧发现玩家的位置等于全局变量
 		previousSighting = lastPlayerSighting.position;
 
 		// 如果玩家HP值等于0 也就是玩家还活着
-		if(playerHealth.health > 0f)
+		if (playerHealth.health > 0f) {
 			// 把playerInSight的值传递到Animator中相应的参数 也就是设为true
-			anim.SetBool(hash.playerInSightBool, playerInSight);
-		else
+			anim.SetBool (hash.playerInSightBool, playerInSight);
+		} else {
 			// 否则设为false
 			anim.SetBool(hash.playerInSightBool, false);
+		}
+			
 	}
 
 
@@ -97,10 +100,12 @@ public class EnemySight : MonoBehaviour {
 			// 如果玩家在跑步状态 或者在喊叫状态时
 			if(playerLayerZeroStateHash == hash.locomotionState || playerLayerOneStateHash == hash.shoutState)
 			{
-				// 并且玩家在敌人听觉范围内
-				if(CalculatePathLength(player.transform.position) <= col.radius)
-					// 敌人单独储存玩家位置的变量 等于玩家当前位置
-					personalLastSighting = player.transform.position;
+//				// 并且玩家在敌人听觉范围内
+//				if(CalculatePathLength(player.transform.position) <= col.radius) {
+//					// 敌人单独储存玩家位置的变量 等于玩家当前位置
+//					personalLastSighting = player.transform.position;
+//				}
+					
 			}
 		}
 	}
@@ -109,9 +114,11 @@ public class EnemySight : MonoBehaviour {
 	void OnTriggerExit (Collider other)
 	{
 		// 如果玩家离开触发器范围
-		if(other.gameObject == player)
+		if(other.gameObject == player) {
 			// 判定玩家没有被发现
 			playerInSight = false;
+		}
+			
 	}
 
 
@@ -121,8 +128,10 @@ public class EnemySight : MonoBehaviour {
 		// 创建路径 并让路径基于目标位置 (玩家位置)
 		NavMeshPath path = new NavMeshPath();
 
-		if(nav.enabled)
+		if (nav.enabled) {
 			nav.CalculatePath(targetPosition, path);
+		}
+			
 		// 创建一个数组 长度等于path.cornners.Length+2
 		Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
 
